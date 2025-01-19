@@ -12,11 +12,11 @@ Check out the web demo! ~https://ldjam.com/events/ludum-dare/55/djimms-revenge~
 
 **Controls**:
 
-Move: WASD/Left-Joystick
+Move: ?
 
-Jump: Space/A
+Jump: ?
 
-Throw: Click/Right-Trigger (HOLD for more power)
+Throw: ?
 
 **Post-Publish Changes**:
 - ?
