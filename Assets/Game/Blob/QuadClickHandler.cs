@@ -5,9 +5,11 @@ public class QuadClickHandler : MonoBehaviour
 {
     [SerializeField]
     private GameObject _targetQuad;
+    [SerializeField]
+    private Camera _camera;
     public LayerMask _layers;
     public bool _disable;
-    private Camera _camera;
+    public bool _debug;
     public Action<Vector2> OnQuadClicked;
 
     void Update()
@@ -25,10 +27,11 @@ public class QuadClickHandler : MonoBehaviour
         if (_camera == null) return;
 
         Ray ray = _camera.ScreenPointToRay(GameInput.Instance._lookPosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, _layers))
+        if (_debug) Debug.Log($"fire pressed: {GameInput.Instance._lookPosition}");
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, _layers))
         {
             Vector2 normalizedPosition = GetQuadNormalizedPosition(_targetQuad.transform, hit.point);
+            if (_debug) Debug.Log($"normalized: {normalizedPosition}");
             OnQuadClicked?.Invoke(normalizedPosition);
         }
     }
@@ -68,7 +71,7 @@ public class QuadClickHandler : MonoBehaviour
         if (_camera == null) _camera = Camera.main;
         if (_camera == null) return;
 
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _camera.ScreenPointToRay(GameInput.Instance._lookPosition);
         Gizmos.color = Color.red;
         Gizmos.DrawRay(ray.origin, ray.direction * 1000);
     }

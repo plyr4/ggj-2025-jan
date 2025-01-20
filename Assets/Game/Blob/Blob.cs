@@ -121,8 +121,8 @@ public class Blob : MonoBehaviour
     private Vector2 _massPosition = Vector2.one * 0.5f;
     [SerializeField]
     public AnimationCurve _newBubbleRadiusOverLifetime;
-    // [SerializeField]
-    // private float _newBubbleBaseRadius = 0.004f;
+    [SerializeField]
+    private float _newBubbleBaseRadius = 0.004f;
     [SerializeField]
     private float _massRadius;
     public GameObject _face;
@@ -141,17 +141,26 @@ public class Blob : MonoBehaviour
             _coreMaterialInstance.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _originalBubbleTexture);
     }
 
-    // public Bubble SpawnBubbleOnTile(HexTile tile)
-    // {
-    //     Bubble bubble = CreateBubble(_massPosition, 0f, _newBubbleBaseRadius, false, 2f, false);
-    //     Vector2 pos = _quadClickHandler.GetQuadNormalizedPosition(tile._worldPosition);
-    //     bubble._goalPosition = pos;
-    //     bubble._tile = tile;
-    //     return bubble;
-    // }
-    
+    public void OnQuadClicked(Vector2 normalizedPos)
+    {
+        Vector2 startingPos = _massPosition;
+        Bubble bubble = CreateBubble(startingPos, _newBubbleBaseRadius, _newBubbleBaseRadius, false, 3f, true);
+        bubble._goalPosition = normalizedPos;
+    }
+
+    private Bubble CreateBubble(Vector2 position, float radius, float baseRadius, bool reserve, float lifespan,
+        bool immortal)
+    {
+        Bubble bubble = Bubble.New(this, position, radius, baseRadius, lifespan, immortal);
+        _bubbles.Add(bubble);
+        if (reserve) _numReservedBubbles++;
+        return bubble;
+    }
+
     private void Start()
     {
+        _quadClickHandler.OnQuadClicked += OnQuadClicked;
+
         InstancedCustomRenderTextureRenderer.Result result = _finder.GenerateCustomRenderTextureMaterial();
 
         _coreMaterialInstance = result._coreMaterial;
@@ -181,15 +190,6 @@ public class Blob : MonoBehaviour
         // MovePlayer();
         UpdateBubbles();
         UpdateBubbleTexture();
-    }
-
-    private Bubble CreateBubble(Vector2 position, float radius, float baseRadius, bool reserve, float lifespan,
-        bool immortal)
-    {
-        Bubble bubble = Bubble.New(this, position, radius, baseRadius, lifespan, immortal);
-        _bubbles.Add(bubble);
-        if (reserve) _numReservedBubbles++;
-        return bubble;
     }
 
     void CreateBubbles()
