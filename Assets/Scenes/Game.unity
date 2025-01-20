@@ -206,63 +206,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &254356077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254356071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ec73687ab5fcc40acec01c380aa79c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 384a3aced009a20488f5d01c61c07b13, type: 2}
-  _quadClickHandler: {fileID: 254356075}
-  _massCenterBubbleRadius: 0.005
-  _moveSpeed: 3
-  _centerMassCreateBubbleCount: 25
-  _bubbles: []
-  _originalBubbleTexture: {fileID: 0}
-  _runtimeBubbleTexture: {fileID: 0}
-  _writeToOriginalBubbleTexture: 0
-  _maxRadius: 0.0001
-  _radiusSpeed: 2
-  _radiusAmplitude: 0.18
-  _orbitOffset: 50
-  _orbitSpeed: 0.1
-  _massPosition: {x: 0.5, y: 0.5}
-  _newBubbleRadiusOverLifetime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _massRadius: 0
-  _face: {fileID: 1133159658}
-  _massCenterFacePositionOffset: {x: 0, y: 0, z: 0}
-  _faceAveragePositionFactor: 0.35
-  _replacementBubblePrefab: {fileID: 1133159658}
-  _newObjectsParent: {fileID: 1133159658}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +524,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 254356074}
+  - {fileID: 1491055943}
+  - {fileID: 866693711}
   m_Father: {fileID: 104680336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
@@ -632,6 +577,127 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1646101607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &866693710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866693711}
+  m_Layer: 0
+  m_Name: dumpster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &866693711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866693710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 525631624}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &883747358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883747359}
+  - component: {fileID: 883747360}
+  m_Layer: 0
+  m_Name: blob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883747359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883747358}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1289841170}
+  m_Father: {fileID: 1872406486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &883747360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883747358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec73687ab5fcc40acec01c380aa79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 2100000, guid: 384a3aced009a20488f5d01c61c07b13, type: 2}
+  _quadClickHandler: {fileID: 254356075}
+  _massCenterBubbleRadius: 0.005
+  _moveSpeed: 3
+  _centerMassCreateBubbleCount: 25
+  _bubbles: []
+  _originalBubbleTexture: {fileID: 0}
+  _runtimeBubbleTexture: {fileID: 0}
+  _writeToOriginalBubbleTexture: 0
+  _maxRadius: 0.0001
+  _radiusSpeed: 2
+  _radiusAmplitude: 0.18
+  _orbitOffset: 50
+  _orbitSpeed: 0.1
+  _massPosition: {x: 0.5, y: 0.5}
+  _newBubbleRadiusOverLifetime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _massRadius: 0
+  _face: {fileID: 1491055942}
+  _massCenterFacePositionOffset: {x: 0, y: 0, z: 0}
+  _faceAveragePositionFactor: 0.35
+  _replacementBubblePrefab: {fileID: 1133159658}
+  _newObjectsParent: {fileID: 866693710}
 --- !u!1 &1133159658
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,13 +936,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289841169}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1358092454}
-  m_Father: {fileID: 1872406486}
+  m_Father: {fileID: 883747359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358092453
 GameObject:
@@ -995,16 +1061,43 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 805757148005408601, guid: 901964071118be6499fd1a8ed2a93041,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 254356077}
-    - targetCorrespondingSourceObject: {fileID: 805757148005408601, guid: 901964071118be6499fd1a8ed2a93041,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 254356076}
     - targetCorrespondingSourceObject: {fileID: 805757148005408601, guid: 901964071118be6499fd1a8ed2a93041,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 254356075}
   m_SourcePrefab: {fileID: 100100000, guid: 901964071118be6499fd1a8ed2a93041, type: 3}
+--- !u!1 &1491055942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491055943}
+  m_Layer: 0
+  m_Name: face
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1491055943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491055942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 525631624}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1616091927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1195,7 @@ MonoBehaviour:
   _showDebug: 0
   _states: []
   _transitions: []
-  _onStateChange: {fileID: 0}
+  _onStateChange: {fileID: 11400000, guid: eb8ad4e65ba5e4dff857a97ac1915c78, type: 2}
   _skipStartInEditMode: 0
 --- !u!4 &1872406486
 Transform:
@@ -1117,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1289841170}
+  - {fileID: 883747359}
   - {fileID: 1133159662}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
