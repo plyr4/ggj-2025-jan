@@ -1,0 +1,331 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: radial-gradient(ellipse at top, #1b2735 0%, #090a0f 100%);
+    overflow-x: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #080808;
+}
+
+#content-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(ellipse at top, #1b2735 0%, #090a0f 100%);
+}
+
+#unity-container {
+    background: #15141a;
+    border-left: 3px solid #15141a;
+    border-right: 3px solid #15141a;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    width: fit-content;
+    position: relative;
+}
+
+#unity-canvas {
+    background: #090a0f;
+}
+
+.unity-mobile #unity-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#unity-loading-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#unity-logo {
+    width: 154px;
+    height: 130px;
+    background: url('unity-logo-dark.png') no-repeat center;
+}
+
+#unity-progress-bar-empty {
+    width: 141px;
+    height: 18px;
+    margin-top: 10px;
+    margin-left: 6.5px;
+    background: url('progress-bar-empty-dark.png') no-repeat center;
+}
+
+#unity-progress-bar-full {
+    width: 0%;
+    height: 18px;
+    margin-top: 10px;
+    background: url('progress-bar-full-dark.png') no-repeat center;
+}
+
+#unity-footer {
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 0.4rem 0.6rem;
+}
+
+.unity-mobile #unity-footer {
+    display: none;
+}
+
+#unity-webgl-logo {
+    float: left;
+    width: 204px;
+    height: 38px;
+    background: url('webgl-logo.png') no-repeat center;
+    /* disabled */
+    display: none;
+}
+
+#unity-build-title {
+    line-height: 38px;
+    font-family: 'Apple';
+    font-size: 18px;
+    letter-spacing: -.15rem;
+    word-spacing: -.4rem;
+    text-align: center;
+}
+
+#title-spacer {
+    flex: 1;
+}
+
+#unity-fullscreen-button {
+    width: 38px;
+    height: 38px;
+    background: url('fullscreen-button.png') no-repeat center;
+    margin-right: 0px;
+    cursor: pointer;
+    position: relative;
+    left: 6px;
+    bottom: 2px;
+}
+
+#unity-warning {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    background: white;
+    padding: 10px;
+    display: none;
+}
+
+/* custom elements */
+
+.mobile {
+    color: red;
+    background: #090a0f;
+    padding: 1.4rem 1rem;
+    font-size: 1rem;
+    font-family: Apple;
+    letter-spacing: -0.25rem;
+    display: inline;
+    margin-top: 1rem;
+}
+
+.mobile a {
+    margin-left: 0.2rem;
+}
+
+.mobile div {
+    margin-top: 0.4rem;
+}
+
+#unity-fullscreen-button-container {
+    margin-right: 0px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+#warning-banner div {
+    margin: 0.2rem 0.4rem;
+}
+
+#warning-banner {
+    background-color: #090a0f;
+    color: white;
+    font-family: 'Apple';
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    color: orange;
+    letter-spacing: -.15rem;
+    flex-direction: row;
+}
+
+#warning-banner div .warning-windows {
+    margin-top: 0.8rem;
+}
+
+.warning-windows a {
+    white-space: nowrap;
+}
+
+#another-container {
+    display: flex;
+    width: 100%;
+}
+
+.content-spacer {
+    flex: 1;
+}
+
+.gh-link {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 1rem;
+}
+
+.gh-link a {
+    line-height: 32px;
+    margin-right: 12px;
+    color: #0dcde7;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: row;
+}
+
+.gh-link img {
+    width: 32px;
+    height: 32px;
+    margin-left: 0.4rem;
+}
+
+.sml-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 0rem;
+}
+
+#game-info {
+    /* width: 1280px; */
+    padding-bottom: 8rem;
+}
+
+#game-info .header {
+    font-weight: bolder;
+    margin-left: 1rem;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid;
+    width: fit-content;
+    padding: 0.3rem 0.2rem;
+}
+
+#game-info .info {
+    margin: 0.2rem 1.6rem;
+}
+
+#game-info .line {
+    margin: 0.4rem 0rem;
+}
+
+#about,
+#controls,
+#known-issues,
+#build-info {
+    background-color: #090a0f;
+    color: white;
+    font-family: 'Apple';
+    letter-spacing: -.15rem;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 1rem 0;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-top: 1rem;
+}
+
+#build-info {
+    margin-top: 3rem;
+    font-family: 'Arial';
+    letter-spacing: initial;
+}
+
+#build-info .header {
+    font-family: 'Apple';
+    letter-spacing: -.15rem;
+
+}
+
+#build-info .label {
+    font-weight: bolder;
+}
+
+#build-info a {
+    color: #0dcde7;
+}
+
+#build-info .info {
+    display: flex;
+    flex-direction: row;
+}
+
+#build-info .labels {
+    display: flex;
+    flex-direction: column;
+}
+
+#build-info .values {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+#build-info .value {
+    margin-left: 0.4rem;
+}
+
+#about {
+    color: cyan;
+    border-color: cyan;
+}
+
+#about #download {
+    margin-top: 1.8rem;
+}
+
+#controls {
+    color: #0ee30e;
+    border-color: #0ee30e;
+}
+
+#known-issues {
+    color: orange;
+    border-color: orange;
+}
+
+#game-info ul {
+    margin-top: 0;
+    text-align: left;
+}
+
+#game-info li {
+    margin-top: 0.3rem;
+}
+
+/* custom font */
+
+@font-face {
+    font-family: 'Apple';
+    src: url('Apple ][.ttf') format("truetype");
+
+}
