@@ -242,15 +242,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BuildMenu"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""73439617-d0bc-4b97-9153-970bb66fc0ef"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1111,17 +1102,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""MenuSubmit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2953b3ba-e2ae-4faf-a809-e3edc237d80c"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""BuildMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1202,7 +1182,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_Key_Backspace = m_Player.FindAction("Key_Backspace", throwIfNotFound: true);
         m_Player_Key_Spacebar = m_Player.FindAction("Key_Spacebar", throwIfNotFound: true);
         m_Player_ScrollWheel = m_Player.FindAction("ScrollWheel", throwIfNotFound: true);
-        m_Player_BuildMenu = m_Player.FindAction("BuildMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1288,7 +1267,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Key_Backspace;
     private readonly InputAction m_Player_Key_Spacebar;
     private readonly InputAction m_Player_ScrollWheel;
-    private readonly InputAction m_Player_BuildMenu;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -1317,7 +1295,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Key_Backspace => m_Wrapper.m_Player_Key_Backspace;
         public InputAction @Key_Spacebar => m_Wrapper.m_Player_Key_Spacebar;
         public InputAction @ScrollWheel => m_Wrapper.m_Player_ScrollWheel;
-        public InputAction @BuildMenu => m_Wrapper.m_Player_BuildMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1399,9 +1376,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ScrollWheel.started += instance.OnScrollWheel;
             @ScrollWheel.performed += instance.OnScrollWheel;
             @ScrollWheel.canceled += instance.OnScrollWheel;
-            @BuildMenu.started += instance.OnBuildMenu;
-            @BuildMenu.performed += instance.OnBuildMenu;
-            @BuildMenu.canceled += instance.OnBuildMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1478,9 +1452,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ScrollWheel.started -= instance.OnScrollWheel;
             @ScrollWheel.performed -= instance.OnScrollWheel;
             @ScrollWheel.canceled -= instance.OnScrollWheel;
-            @BuildMenu.started -= instance.OnBuildMenu;
-            @BuildMenu.performed -= instance.OnBuildMenu;
-            @BuildMenu.canceled -= instance.OnBuildMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1560,6 +1531,5 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnKey_Backspace(InputAction.CallbackContext context);
         void OnKey_Spacebar(InputAction.CallbackContext context);
         void OnScrollWheel(InputAction.CallbackContext context);
-        void OnBuildMenu(InputAction.CallbackContext context);
     }
 }

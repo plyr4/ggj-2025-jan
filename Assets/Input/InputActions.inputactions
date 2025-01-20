@@ -220,15 +220,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "BuildMenu",
-                    "type": "PassThrough",
-                    "id": "73439617-d0bc-4b97-9153-970bb66fc0ef",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1087,17 +1078,6 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "MenuSubmit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2953b3ba-e2ae-4faf-a809-e3edc237d80c",
-                    "path": "<Keyboard>/b",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "BuildMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

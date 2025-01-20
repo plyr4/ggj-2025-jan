@@ -1,0 +1,19 @@
+{
+    "name": "StateMachine.Game",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1cd6a7f52c0ab4ddd8eed38211562b8c",
+        "GUID:cfc580f1f030c4b28bb656bcbd709a3f",
+        "GUID:daa1afb6b75f04b5fb236952e006e9fa",
+        "GUID:28bdc226391e44d7a92cded1ec298f92"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

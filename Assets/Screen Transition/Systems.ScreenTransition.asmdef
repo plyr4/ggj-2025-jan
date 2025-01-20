@@ -1,0 +1,17 @@
+{
+    "name": "Systems.ScreenTransition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:42ddd2220f8bf4b8fa5bad4819c07b01",
+        "GUID:cfc580f1f030c4b28bb656bcbd709a3f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
