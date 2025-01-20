@@ -45,11 +45,11 @@
                         <div class="line">Use NEEBO's SHRINK RAY to COLLECT any other-worldly goodies you encounter.
                         </div>
                         <div class="line" id="download">For the best experience, try downloading the <a
-                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneWindows64/neebo-StandaloneWindows64.zip"
+                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneWindows64/bubble-StandaloneWindows64.zip"
                                 target="_blank">Windows version</a> <img class="sml-icon"
                                 src="https://cdn-icons-png.flaticon.com/512/732/732225.png" />!
                             (or the <a
-                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneLinux64/neebo-StandaloneLinux64.zip"
+                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneLinux64/bubble-StandaloneLinux64.zip"
                                 target="_blank">Linux version</a> <img class="sml-icon"
                                 src="https://static-00.iconduck.com/assets.00/linux-icon-439x512-rnhe78x0.png" />)
                         </div>
@@ -155,8 +155,8 @@
         // config.matchWebGLToCanvasSize = false;
 
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            document.querySelector("#unity-container").outerHTML = `<div class="mobile">Sorry, NEEBO is not supported on mobile devices.<div>Try downloading the <a href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneWindows64/neebo-StandaloneWindows64.zip" target="_blank">Windows version</a> <img class="sml-icon" src="https://cdn-icons-png.flaticon.com/512/732/732225.png"/>! (or the <a
-                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneLinux64/neebo-StandaloneLinux64.zip"
+            document.querySelector("#unity-container").outerHTML = `<div class="mobile">Sorry, NEEBO is not supported on mobile devices.<div>Try downloading the <a href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneWindows64/bubble-StandaloneWindows64.zip" target="_blank">Windows version</a> <img class="sml-icon" src="https://cdn-icons-png.flaticon.com/512/732/732225.png"/>! (or the <a
+                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneLinux64/bubble-StandaloneLinux64.zip"
                                 target="_blank">Linux version</a> <img class="sml-icon"
                                                                        src="https://static-00.iconduck.com/assets.00/linux-icon-439x512-rnhe78x0.png"/>)</div></div>`;
         } else {
@@ -183,8 +183,8 @@
             document.body.appendChild(script);
         }
         console.log(navigator.userAgent);
-        var warning = `<div><div>The web demo for NEEBO works best when using Firefox <img class="sml-icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968827.png"/>, with hardware acceleration enabled.</div><div class="warning-windows">For the true experience, try downloading the <a href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneWindows64/neebo-StandaloneWindows64.zip" target="_blank">Windows version</a> <img class="sml-icon" src="https://cdn-icons-png.flaticon.com/512/732/732225.png"/>! (or the <a
-                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneLinux64/neebo-StandaloneLinux64.zip"
+        var warning = `<div><div>The web demo for NEEBO works best when using Firefox <img class="sml-icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968827.png"/>, with hardware acceleration enabled.</div><div class="warning-windows">For the true experience, try downloading the <a href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneWindows64/bubble-StandaloneWindows64.zip" target="_blank">Windows version</a> <img class="sml-icon" src="https://cdn-icons-png.flaticon.com/512/732/732225.png"/>! (or the <a
+                                href="https://github.com/plyr4/unity-build-factory/releases/download/plyr4/ggj-2025-jan-StandaloneLinux64/bubble-StandaloneLinux64.zip"
                                 target="_blank">Linux version</a> <img class="sml-icon" src="https://static-00.iconduck.com/assets.00/linux-icon-439x512-rnhe78x0.png"/>)</div></div><div class="gh-link"><a href="https://github.com/plyr4" target="_blank">plyr4<img src="https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg"/></a></div>`;
         document.querySelector("#warning-banner").innerHTML = warning;
         document.querySelector("#platform").innerHTML = navigator.userAgent;
