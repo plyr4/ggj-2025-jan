@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>neebo demo</title>
+    <title>ggj 2025 jan entry</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
 
 <body>
-    <<div id="another-container">
+    <div id="another-container">
         <div id="content-container">
             <div id="warning-banner"></div>
             <!-- <div id="content-spacer"></div> -->
@@ -19,7 +19,7 @@
                     <!-- top left -->
                     <div id="title-spacer"></div>
                     <!-- center -->
-                    <div id="unity-build-title">NEEBO</div>
+                    <div id="unity-build-title">GGJ 2025 Jan Entry</div>
                     <!-- top right -->
                     <div id="unity-fullscreen-button-container">
                         <div id="unity-fullscreen-button"></div>
@@ -38,11 +38,9 @@
                 <div id="about">
                     <div class="header">ABOUT</div>
                     <div class="info">
-                        <div class="line">Help NEEBO repair his prized FLYING SAUCER and ESCAPE this bizarre planet
-                            called
-                            EARTH.
+                        <div class="line">Do something
                         </div>
-                        <div class="line">Use NEEBO's SHRINK RAY to COLLECT any other-worldly goodies you encounter.
+                        <div class="line">Use something to do something when you encounter someone.
                         </div>
                         <div class="line" id="download">For the best experience, try downloading the <a
                                 href="${WINDOWS_BUILD_LINK}"
@@ -59,19 +57,17 @@
                     <div class="header">CONTROLS</div>
                     <ul>
                         Best experienced with a controller
-                        <li>WASD or LEFT-JOYSTICK to navigate menus and fly the ship</li>
-                        <li>QE or RIGHT-JOYSTICK to rotate the camera</li>
-                        <li>TAB or LEFT-TRIGGER to levitate objects</li>
-                        <li>SPACE or RIGHT-TRIGGER to shrink+collect objects</li>
+                        <li>WASD or LEFT-JOYSTICK to navigate menus and</li>
+                        <li>QE or RIGHT-JOYSTICK to </li>
+                        <li>TAB or LEFT-TRIGGER to</li>
+                        <li>SPACE or RIGHT-TRIGGER to </li>
                         <li>BACKSPACE or START to pause</li>
                     </ul>
                 </div>
                 <div id="known-issues">
                     <div class="header">KNOWN ISSUES</div>
                     <ul>
-                        <li>Google Chrome - with certain GPUs will fail to render (black screen)</li>
-                        <li>All Browsers - resizing fullscreen may cause menus to display incorrectly</li>
-                        <li>Mac OSX - dithering effects will flicker</li>
+                        <li>?</li>
                     </ul>
                 </div>
                 <div id="build-info">
@@ -86,11 +82,11 @@
                         </div>
                         <div class="values">
                             <div>- <span class="value" id="platform"></span></div>
-                            <div>- <span class="value">Unity 2021.3.15f1</span></div>
+                            <div>- <span class="value">Unity 2022.3.25f1</span></div>
                             <div>- <a class="value" href="https://github.com/plyr4" target="_blank">github.com/plyr4</a>
                             </div>
                             <div>- <a class="value" id="commit-link" target="_blank"
-                                    href="https://github.com/plyr4/unity-ufo/commit/${BUILD_COMMIT}">${BUILD_COMMIT}</a>
+                                    href="https://github.com/plyr4/ggj-2025-jan/commit/${BUILD_COMMIT}">${BUILD_COMMIT}</a>
                             </div>
                             <div>- <span class="value">${BUILD_COMMIT_MESSAGE}</span></div>
                         </div>
@@ -135,14 +131,14 @@
         }
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/WebGL.loader.js";
+        var loaderUrl = buildUrl + "/ggj.loader.js";
         var config = {
-            dataUrl: buildUrl + "/WebGL.data.unityweb",
-            frameworkUrl: buildUrl + "/WebGL.framework.js.unityweb",
-            codeUrl: buildUrl + "/WebGL.wasm.unityweb",
+            dataUrl: buildUrl + "/ggj.data.br",
+            frameworkUrl: buildUrl + "/ggj.framework.js.br",
+            codeUrl: buildUrl + "/ggj.wasm.br",
             streamingAssetsUrl: "StreamingAssets",
-            companyName: "dlv",
-            productName: "dlv-ufo",
+            companyName: "plyr4",
+            productName: "ggj-plyr4",
             productVersion: "${BUILD_COMMIT}",
             showBanner: unityShowBanner,
         };
@@ -189,6 +185,6 @@
         document.querySelector("#warning-banner").innerHTML = warning;
         document.querySelector("#platform").innerHTML = navigator.userAgent;
     </script>
-</body>>
+</body>
 
 </html>
