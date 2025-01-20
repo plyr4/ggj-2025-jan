@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
+using UnityEngine.Serialization;
+
+// using UnityEngine.Experimental.Rendering;
 
 [Serializable]
 public class Bubble
@@ -77,28 +81,28 @@ public class Bubble
 
 public class Blob : MonoBehaviour
 {
-    public Material _material;
+    public InstancedCustomRenderTextureRenderer _finder;
+    [SerializeField]
+    [ReadOnlyInspector]
+    public Material _coreMaterialInstance;
     [SerializeField]
     private QuadClickHandler _quadClickHandler;
-
     // quad rules
     private const float MAX_HEIGHT = 1f;
     private const float MAX_WIDTH = 1f;
     public float _massCenterBubbleRadius = 0.005f;
-
     public float _moveSpeed = 3.0f;
-
     // bubbles
     public int _centerMassCreateBubbleCount = 25;
     private int _numReservedBubbles;
-
     private Vector2Int _bubbleTextureSize = new Vector2Int(32, 32);
     public List<Bubble> _bubbles = new List<Bubble>();
     public Texture2D _originalBubbleTexture;
+    [SerializeField]
+    [ReadOnlyInspector]
     public Texture2D _runtimeBubbleTexture;
     [SerializeField]
     private bool _writeToOriginalBubbleTexture;
-
     // shader properties
     const string BUBBLES_SHADER_PROPERTY = "_Bubbles";
     const string BUBBLE_COUNT_SHADER_PROPERTY = "_BubbleCount";
@@ -133,7 +137,8 @@ public class Blob : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        _material.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _originalBubbleTexture);
+        if (_coreMaterialInstance != null)
+            _coreMaterialInstance.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _originalBubbleTexture);
     }
 
     // public Bubble SpawnBubbleOnTile(HexTile tile)
@@ -144,13 +149,18 @@ public class Blob : MonoBehaviour
     //     bubble._tile = tile;
     //     return bubble;
     // }
-
+    
     private void Start()
     {
+        InstancedCustomRenderTextureRenderer.Result result = _finder.GenerateCustomRenderTextureMaterial();
+
+        _coreMaterialInstance = result._coreMaterial;
+        _quadClickHandler.GetComponent<MeshRenderer>().material = result._quadMaterial;
+
         _shaderIDs[BUBBLES_SHADER_PROPERTY] = Shader.PropertyToID(BUBBLES_SHADER_PROPERTY);
         _shaderIDs[BUBBLE_COUNT_SHADER_PROPERTY] = Shader.PropertyToID(BUBBLE_COUNT_SHADER_PROPERTY);
 
-        _originalBubbleTexture = _material.GetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY]) as Texture2D;
+        _originalBubbleTexture = _coreMaterialInstance.GetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY]) as Texture2D;
 
         _bubbles.Clear();
 
@@ -243,11 +253,11 @@ public class Blob : MonoBehaviour
             }
         }
 
+        // todo: only write when bubbles have changed
         _runtimeBubbleTexture.Apply();
         if (_writeToOriginalBubbleTexture) _originalBubbleTexture.Apply();
-
-        _material.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _runtimeBubbleTexture);
-        _material.SetInt(_shaderIDs[BUBBLE_COUNT_SHADER_PROPERTY], _bubbles.Count);
+        _coreMaterialInstance.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _runtimeBubbleTexture);
+        _coreMaterialInstance.SetInt(_shaderIDs[BUBBLE_COUNT_SHADER_PROPERTY], _bubbles.Count);
     }
 
     void UpdateBubbles()
