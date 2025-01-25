@@ -299,6 +299,10 @@ body {
     border-color: cyan;
 }
 
+div.line {
+    color: white;
+}
+
 #about #download {
     margin-top: 1.8rem;
 }
@@ -308,9 +312,17 @@ body {
     border-color: #0ee30e;
 }
 
+#controls li {
+    color: white;
+}
+
 #known-issues {
     color: orange;
     border-color: orange;
+}
+
+#known-issues li {
+    color: white;
 }
 
 #game-info ul {
@@ -329,3 +341,31 @@ body {
     src: url('Apple ][.ttf') format("truetype");
 
 }
+
+.circles::after {
+    content: "\25CF";
+    margin-left: 0.3rem;
+    position: relative;
+    bottom: 2px;
+}
+
+.green {
+    color: #0ee30e;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.lightblue {
+    color: #0dcde7;
+}
+
+.blue {
+    color: #0d64e7;
+}
+
