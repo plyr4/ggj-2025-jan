@@ -9,14 +9,19 @@ public class GStateMachineGame : GStateMachineMono
     private GStateBase _init;
     private GStateBase _startIn;
     private GStateBase _start;
+    private GStateBase _quit;
     private GStateBase _startOutPlayIn;
     private GStateBase _startOutQuitIn;
     private GStateBase _playLoad;
     private GStateBase _playIn;
     private GStateBase _play;
     private GStateBase _pause;
-    private GStateBase _retry;
-    private GStateBase _quit;
+    private GStateBase _pauseRetryIn;
+    private GStateBase _pauseRetry;
+    private GStateBase _pauseQuitIn;
+    private GStateBase _pauseQuit;
+
+    public bool _unloadPlaySceneOnApplicationStart = true;
 
     public static GStateMachineGame Instance
     {
@@ -59,8 +64,11 @@ public class GStateMachineGame : GStateMachineMono
         _playIn = ((GStateFactory)_stateFactory).PlayIn();
         _play = ((GStateFactory)_stateFactory).Play();
         _pause = ((GStateFactory)_stateFactory).Pause();
-        _retry = ((GStateFactory)_stateFactory).Retry();
+        _pauseRetryIn = ((GStateFactory)_stateFactory).PauseRetryIn();
+        _pauseRetry = ((GStateFactory)_stateFactory).PauseRetry();
         _quit = ((GStateFactory)_stateFactory).Quit();
+        _pauseQuitIn = ((GStateFactory)_stateFactory).PauseQuitIn();
+        _pauseQuit = ((GStateFactory)_stateFactory).PauseQuit();
 
         // transitions
         at(_nan, _init, new FuncPredicate(() =>
@@ -110,8 +118,24 @@ public class GStateMachineGame : GStateMachineMono
             _pause._done && _play._ready
         ));
 
-        at(_pause, _retry, new FuncPredicate(() =>
-            _pause._done && _retry._ready
+        at(_pause, _pauseRetryIn, new FuncPredicate(() =>
+            _pause._done && _pauseRetryIn._ready
+        ));
+
+        at(_pauseRetryIn, _pauseRetry, new FuncPredicate(() =>
+            _pauseRetryIn._done
+        ));
+
+        at(_pauseRetry, _playIn, new FuncPredicate(() =>
+            _pauseRetry._done
+        ));
+
+        at(_pause, _pauseQuitIn, new FuncPredicate(() =>
+            _pause._done && _pauseQuitIn._ready
+        ));
+
+        at(_pauseQuitIn, _quit, new FuncPredicate(() =>
+            _pauseQuitIn._done
         ));
 
         _stateMachine.SetState(_nan);
@@ -146,6 +170,12 @@ public class GStateMachineGame : GStateMachineMono
             case GStateStartOutQuitIn:
                 _startOutQuitIn._done = true;
                 break;
+            case GStatePauseRetryIn:
+                _pauseRetryIn._done = true;
+                break;
+            case GStatePauseQuitIn:
+                _pauseQuitIn._done = true;
+                break;
         }
     }
 
@@ -158,7 +188,7 @@ public class GStateMachineGame : GStateMachineMono
                 break;
             case GStatePlayLoad:
                 break;
-            case GStateRetry:
+            case GStatePauseRetry:
                 break;
         }
     }
@@ -182,7 +212,13 @@ public class GStateMachineGame : GStateMachineMono
     public void HandlePauseRetry()
     {
         _pause._done = true;
-        _retry._ready = true;
+        _pauseRetryIn._ready = true;
+    }
+
+    public void HandlePauseQuit()
+    {
+        _pause._done = true;
+        _pauseQuitIn._ready = true;
     }
 
     public void HandleStartQuit()

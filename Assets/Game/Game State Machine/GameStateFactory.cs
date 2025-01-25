@@ -28,7 +28,7 @@ public class GStateFactory : StateFactory
     {
         return new GStateStartOutPlayIn(_context, this);
     }
-    
+
     public GStateBase StartOutQuitIn()
     {
         return new GStateStartOutQuitIn(_context, this);
@@ -38,7 +38,7 @@ public class GStateFactory : StateFactory
     {
         return new GStateIntroLoad(_context, this);
     }
-    
+
     public GStateBase Intro()
     {
         return new GStateIntro(_context, this);
@@ -53,7 +53,7 @@ public class GStateFactory : StateFactory
     {
         return new GStatePlayIn(_context, this);
     }
-    
+
     public GStateBase Play()
     {
         return new GStatePlay(_context, this);
@@ -62,6 +62,11 @@ public class GStateFactory : StateFactory
     public GStateBase Pause()
     {
         return new GStatePause(_context, this);
+    }
+
+    public GStateBase PauseQuitIn()
+    {
+        return new GStatePauseQuitIn(_context, this);
     }
 
     public GStateBase PauseQuit()
@@ -74,15 +79,16 @@ public class GStateFactory : StateFactory
         return new GStateGameOver(_context, this);
     }
 
-    public GStateBase RetryIn()
+    public GStateBase PauseRetryIn()
     {
-        return new GStateRetryIn(_context, this);
+        return new GStatePauseRetryIn(_context, this);
     }
 
-    public GStateBase Retry()
+    public GStateBase PauseRetry()
     {
-        return new GStateRetry(_context, this);
+        return new GStatePauseRetry(_context, this);
     }
+
     public GStateBase Quit()
     {
         return new GStateQuit(_context, this);

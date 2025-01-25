@@ -1,4 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GStatePauseQuit : GStateBase
 {
@@ -12,15 +15,10 @@ public class GStatePauseQuit : GStateBase
 
         if (_context == null) return;
 
-        Time.timeScale = 1f;
-        
-        // ScreenTransition.Instance.Close();
-    }
-
-    public override void OnExit()
-    {
-        base.OnExit();
-
-        if (_context == null) return;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

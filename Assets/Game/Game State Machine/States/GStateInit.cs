@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GStateInit : GStateBase
 {
@@ -13,7 +14,7 @@ public class GStateInit : GStateBase
         if (_context == null) return;
 
         InitializeGame();
-        
+
         ScreenTransition.Instance.CloseImmediate();
         ScreenTransition.Instance.Open(0.25f);
     }
@@ -27,8 +28,19 @@ public class GStateInit : GStateBase
 
     private void InitializeGame()
     {
+        UnloadNonCoreScenes();
         // delay to next frame to account for immediate loading (ex: core scenes were pre-loaded)
         _context.StartCoroutine(finishLoadingCoreScenesNextFrame());
+    }
+
+    private void UnloadNonCoreScenes()
+    {
+        // unload non-core scenes
+        // but only if scene is loaded
+        if (SceneManager.GetSceneByName("Play").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Play");
+        }
     }
 
     private IEnumerator finishLoadingCoreScenesNextFrame()

@@ -62,7 +62,7 @@ public class ScreenTransition : MonoBehaviour
         Scaler
     }
 
-    void Start()
+    private void Start()
     {
         _transitionProgress = 1f;
         _state = TransitionState.Close;
@@ -81,7 +81,7 @@ public class ScreenTransition : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         switch (_state)
         {

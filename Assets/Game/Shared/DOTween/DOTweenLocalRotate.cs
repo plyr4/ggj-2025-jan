@@ -17,14 +17,25 @@ public class DOTweenLocalRotate : MonoBehaviour
     [SerializeField]
     private TweenOpts _opts;
 
+    private Tween _tween;
+
     void Start()
     {
-        transform.DOLocalRotate(
+        _tween = transform.DOLocalRotate(
                 new Vector3(0, 360f, 0),
                 _opts._duration,
                 RotateMode.FastBeyond360)
             .SetRelative(_opts._relative)
             .SetEase(_opts._ease)
             .SetLoops(_opts._loop ? _opts._loops : 0);
+    }
+
+    void OnDestroy()
+    {
+        if (_tween != null)
+        {
+            _tween.Kill();
+            _tween = null;
+        }
     }
 }

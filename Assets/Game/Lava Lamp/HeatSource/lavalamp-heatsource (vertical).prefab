@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6552759157645125209
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492418597691317961, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194408716344714550, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: _mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153518029604755397, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e9b202a1b95547b99ddc2a44bb8f59d, type: 2}
+    - target: {fileID: 4464602203225169864, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785410886910264364, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 28bbec3f72ef14e64b88ceb5335d199b, type: 2}
+    - target: {fileID: 6661535206693242985, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661535206693242985, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661535206693242985, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726355056299426805, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c11f8034cb9a46fb9046995e084bdb9, type: 2}
+    - target: {fileID: 7181102223408612755, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0893
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181102223408612755, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.18149881
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181102223408612755, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181102223408612755, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.996
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411901332516472127, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
+      propertyPath: m_Name
+      value: lavalamp-heatsource (vertical)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2494923631593943344, guid: baf77b1b5344746c2aa9a64f7fdd37ec, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baf77b1b5344746c2aa9a64f7fdd37ec, type: 3}
