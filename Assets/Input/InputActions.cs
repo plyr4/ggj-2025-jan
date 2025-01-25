@@ -37,6 +37,33 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""VerticalMoveHeatSourceLeft"",
+                    ""type"": ""Value"",
+                    ""id"": ""30407fe3-439d-476f-bb37-63ab250f7054"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""VerticalMoveHeatSourceRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""9d4192ba-065c-40d9-b787-bef1b19509d7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HorizontalMoveHeatSource"",
+                    ""type"": ""Value"",
+                    ""id"": ""998dfd38-53e4-4f92-a676-785a7ad56543"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""VerticalMove"",
                     ""type"": ""Value"",
                     ""id"": ""7e1fef20-d861-45a9-a206-d4de7163bd69"",
@@ -1102,6 +1129,182 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""MenuSubmit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""ad58ccc4-152e-4750-8434-9b9bb08ebfc8"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9a421222-3bc6-483e-aa0e-b826ef856544"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8d311e8f-e940-42a7-ad67-d5e8252ae281"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""684e5ad6-70e7-479b-be75-fb8776f2eb0f"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fca2d2e5-18e1-4ef2-9883-61676c9536e7"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7a5d378-f833-4592-8c7e-e98f3f392cc1"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone,ScaleVector2(y=0)"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b071ed72-4315-41ec-bf15-1698b8813337"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone,ScaleVector2(y=0)"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b27302e-b47c-47e1-8d59-0070660f47fc"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""HorizontalMoveHeatSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WS"",
+                    ""id"": ""dde2ef55-c4a5-41d4-9abd-c407efece66d"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalMoveHeatSourceLeft"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b1351cd2-e89c-44b4-98ce-c311bfc91133"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""VerticalMoveHeatSourceLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""ea7c153f-440e-47b1-9e92-6b6a80857c23"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""VerticalMoveHeatSourceLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dfe428b-0e2e-478b-85d6-971f60582551"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""VerticalMoveHeatSourceLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up Arrow/Down Arrow"",
+                    ""id"": ""4ca3c23f-72c9-4a35-ba5d-7643b82ce4bc"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalMoveHeatSourceRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0eb71ad0-517f-411c-9f0f-aad2ca65f09a"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""VerticalMoveHeatSourceRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2664e650-e49d-4a74-85b3-f4c1f58b8469"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""VerticalMoveHeatSourceRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b26bf9bc-42d9-4b3e-b86c-b9947d075c08"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""VerticalMoveHeatSourceRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1159,6 +1362,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_HorizontalMove = m_Player.FindAction("HorizontalMove", throwIfNotFound: true);
+        m_Player_VerticalMoveHeatSourceLeft = m_Player.FindAction("VerticalMoveHeatSourceLeft", throwIfNotFound: true);
+        m_Player_VerticalMoveHeatSourceRight = m_Player.FindAction("VerticalMoveHeatSourceRight", throwIfNotFound: true);
+        m_Player_HorizontalMoveHeatSource = m_Player.FindAction("HorizontalMoveHeatSource", throwIfNotFound: true);
         m_Player_VerticalMove = m_Player.FindAction("VerticalMove", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_LookPosition = m_Player.FindAction("LookPosition", throwIfNotFound: true);
@@ -1244,6 +1450,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_HorizontalMove;
+    private readonly InputAction m_Player_VerticalMoveHeatSourceLeft;
+    private readonly InputAction m_Player_VerticalMoveHeatSourceRight;
+    private readonly InputAction m_Player_HorizontalMoveHeatSource;
     private readonly InputAction m_Player_VerticalMove;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_LookPosition;
@@ -1272,6 +1481,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @HorizontalMove => m_Wrapper.m_Player_HorizontalMove;
+        public InputAction @VerticalMoveHeatSourceLeft => m_Wrapper.m_Player_VerticalMoveHeatSourceLeft;
+        public InputAction @VerticalMoveHeatSourceRight => m_Wrapper.m_Player_VerticalMoveHeatSourceRight;
+        public InputAction @HorizontalMoveHeatSource => m_Wrapper.m_Player_HorizontalMoveHeatSource;
         public InputAction @VerticalMove => m_Wrapper.m_Player_VerticalMove;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @LookPosition => m_Wrapper.m_Player_LookPosition;
@@ -1307,6 +1519,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HorizontalMove.started += instance.OnHorizontalMove;
             @HorizontalMove.performed += instance.OnHorizontalMove;
             @HorizontalMove.canceled += instance.OnHorizontalMove;
+            @VerticalMoveHeatSourceLeft.started += instance.OnVerticalMoveHeatSourceLeft;
+            @VerticalMoveHeatSourceLeft.performed += instance.OnVerticalMoveHeatSourceLeft;
+            @VerticalMoveHeatSourceLeft.canceled += instance.OnVerticalMoveHeatSourceLeft;
+            @VerticalMoveHeatSourceRight.started += instance.OnVerticalMoveHeatSourceRight;
+            @VerticalMoveHeatSourceRight.performed += instance.OnVerticalMoveHeatSourceRight;
+            @VerticalMoveHeatSourceRight.canceled += instance.OnVerticalMoveHeatSourceRight;
+            @HorizontalMoveHeatSource.started += instance.OnHorizontalMoveHeatSource;
+            @HorizontalMoveHeatSource.performed += instance.OnHorizontalMoveHeatSource;
+            @HorizontalMoveHeatSource.canceled += instance.OnHorizontalMoveHeatSource;
             @VerticalMove.started += instance.OnVerticalMove;
             @VerticalMove.performed += instance.OnVerticalMove;
             @VerticalMove.canceled += instance.OnVerticalMove;
@@ -1383,6 +1604,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HorizontalMove.started -= instance.OnHorizontalMove;
             @HorizontalMove.performed -= instance.OnHorizontalMove;
             @HorizontalMove.canceled -= instance.OnHorizontalMove;
+            @VerticalMoveHeatSourceLeft.started -= instance.OnVerticalMoveHeatSourceLeft;
+            @VerticalMoveHeatSourceLeft.performed -= instance.OnVerticalMoveHeatSourceLeft;
+            @VerticalMoveHeatSourceLeft.canceled -= instance.OnVerticalMoveHeatSourceLeft;
+            @VerticalMoveHeatSourceRight.started -= instance.OnVerticalMoveHeatSourceRight;
+            @VerticalMoveHeatSourceRight.performed -= instance.OnVerticalMoveHeatSourceRight;
+            @VerticalMoveHeatSourceRight.canceled -= instance.OnVerticalMoveHeatSourceRight;
+            @HorizontalMoveHeatSource.started -= instance.OnHorizontalMoveHeatSource;
+            @HorizontalMoveHeatSource.performed -= instance.OnHorizontalMoveHeatSource;
+            @HorizontalMoveHeatSource.canceled -= instance.OnHorizontalMoveHeatSource;
             @VerticalMove.started -= instance.OnVerticalMove;
             @VerticalMove.performed -= instance.OnVerticalMove;
             @VerticalMove.canceled -= instance.OnVerticalMove;
@@ -1508,6 +1738,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnHorizontalMove(InputAction.CallbackContext context);
+        void OnVerticalMoveHeatSourceLeft(InputAction.CallbackContext context);
+        void OnVerticalMoveHeatSourceRight(InputAction.CallbackContext context);
+        void OnHorizontalMoveHeatSource(InputAction.CallbackContext context);
         void OnVerticalMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnLookPosition(InputAction.CallbackContext context);

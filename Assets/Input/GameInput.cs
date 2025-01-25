@@ -62,6 +62,10 @@ public class GameInput : MonoBehaviour
         _playerInput.onActionTriggered += OnMenuBack;
         _playerInput.onActionTriggered += OnBuildMenu;
 
+        _playerInput.onActionTriggered += OnHorizontalMoveHeatSource;
+        _playerInput.onActionTriggered += OnVerticalMoveHeatSourceLeft;
+        _playerInput.onActionTriggered += OnVerticalMoveHeatSourceRight;
+
         _playerInput.onControlsChanged += OnControlsChanged;
         _controlScheme = _playerInput.currentControlScheme;
     }
@@ -104,21 +108,21 @@ public class GameInput : MonoBehaviour
         }
 
         _jumpReleased = false;
-        
+
         _menuBackPressed = false;
         if (_menuBackReleased)
         {
             _menuBackHeld = false;
         }
-        
+
         _menuBackReleased = false;
-        
+
         _buildMenuPressed = false;
         if (_buildMenuReleased)
         {
             _buildMenuHeld = false;
         }
-        
+
         _buildMenuReleased = false;
     }
 
@@ -227,5 +231,32 @@ public class GameInput : MonoBehaviour
         _buildMenuHeld = context.action.WasPressedThisFrame();
 
         _buildMenuReleased = context.action.WasReleasedThisFrame();
+    }
+
+    public Vector3 _horizontalMovementHeatSource;
+
+    public void OnHorizontalMoveHeatSource(InputAction.CallbackContext context)
+    {
+        if (context.action.name != "HorizontalMoveHeatSource") return;
+
+        _horizontalMovementHeatSource = context.ReadValue<Vector2>();
+    }
+
+    public Vector3 _verticalMovementHeatSourceLeft;
+
+    public void OnVerticalMoveHeatSourceLeft(InputAction.CallbackContext context)
+    {
+        if (context.action.name != "VerticalMoveHeatSourceLeft") return;
+
+        _verticalMovementHeatSourceLeft = context.ReadValue<Vector2>();
+    }
+
+    public Vector3 _verticalMovementHeatSourceRight;
+
+    public void OnVerticalMoveHeatSourceRight(InputAction.CallbackContext context)
+    {
+        if (context.action.name != "VerticalMoveHeatSourceRight") return;
+
+        _verticalMovementHeatSourceRight = context.ReadValue<Vector2>();
     }
 }

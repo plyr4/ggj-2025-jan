@@ -16,7 +16,6 @@ public class GUIPauseMenu : MonoBehaviour
                 break;
             case GStatePause _:
                 _viewParent.SetActive(true);
-                // find first button child and set focus on it 
                 _viewParent.GetComponentInChildren<UnityEngine.UI.Button>().Select();
                 break;
             case GStatePlay _:
