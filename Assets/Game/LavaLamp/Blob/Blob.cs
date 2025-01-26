@@ -60,6 +60,7 @@ public class Blob : MonoBehaviour
     public float _currentState = 0.5f;
     public float _currentStateValue = 0.5f;
     public float _stateLerpSpeed = 1f;
+    public bool _disabled;
 
     private void Start()
     {
@@ -98,18 +99,19 @@ public class Blob : MonoBehaviour
     {
         _bubbles[0]._position = _playerBubbleMono.transform.localPosition;
 
-        Bubble.UpdateOpts updateOpts = new Bubble.UpdateOpts
-        {
-            _blob = this
-        };
         UpdateCurrentState();
         UpdateBubbles();
-        Bubble.HandlePlayerCollisions(updateOpts);
+        Bubble.HandlePlayerCollisions(new Bubble.UpdateOpts
+        {
+            _blob = this
+        });
         UpdateBubbleTextures();
     }
 
     void FixedUpdate()
     {
+        if (_disabled) return;
+
         Bubble.UpdateOpts updateOpts = new Bubble.UpdateOpts
         {
             _blob = this
@@ -119,12 +121,16 @@ public class Blob : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        if (_disabled) return;
+
         if (_coreMaterialInstance != null)
             _coreMaterialInstance.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _originalBubbleTexture);
     }
 
     public void OnQuadClicked(Vector2 normalizedPos)
     {
+        if (_disabled) return;
+
         Bubble bubble = _bubbles[0];
         if (_t != null)
         {
@@ -150,7 +156,8 @@ public class Blob : MonoBehaviour
         {
             _runtimeBubbleTexture = new Texture2D(
                 _bubbleTextureSize.x, _bubbleTextureSize.y,
-                TextureFormat.RGBAFloat, false)
+                TextureFormat.RGBAFloat,
+                false)
             {
                 wrapMode = TextureWrapMode.Clamp,
                 filterMode = FilterMode.Point,
@@ -209,6 +216,8 @@ public class Blob : MonoBehaviour
 
     public void RemoveBubble(Bubble bubble)
     {
+        if (_disabled) return;
+
         _bubbles.Remove(bubble);
     }
 
@@ -293,6 +302,8 @@ public class Blob : MonoBehaviour
 
     public float HandleKillBubble(Bubble bubble)
     {
+        if (_disabled) return 0;
+
         float delta = 0.05f;
         if (bubble._colorID == 1)
         {
@@ -307,12 +318,16 @@ public class Blob : MonoBehaviour
 
     public float SetCurrentStateDelta(float delta)
     {
+        if (_disabled) return 0;
+
         _currentState = Mathf.Clamp01(_currentState + delta);
         return _currentState;
     }
 
     private void UpdateCurrentState()
     {
+        if (_disabled) return;
+
         float value = Mathf.Lerp(_currentStateValue, _currentState, Time.deltaTime * _stateLerpSpeed);
 
         if (_currentStateValue - value != 0)
@@ -324,6 +339,8 @@ public class Blob : MonoBehaviour
 
     public void UpdateBubbles()
     {
+        if (_disabled) return;
+
         List<Bubble> bubbles = _bubbles;
         for (int i = bubbles.Count - 1; i > 0; i--)
         {

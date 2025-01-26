@@ -28,6 +28,7 @@ public class InstancedCustomRenderTextureRenderer : MonoBehaviour
 
     public Result GenerateCustomRenderTextureMaterial()
     {
+        Debug.Log("generating");
         RenderTextureFormat format = FindBestRandomWriteSupportedFormat();
         _renderTextureInstance = new CustomRenderTexture(_renderTexture.width, _renderTexture.height,
             GraphicsFormatUtility.GetGraphicsFormat(format, RenderTextureReadWrite.sRGB));

@@ -66,7 +66,7 @@ Material:
     - _ReceiveShadows: 0
     - _ScrollFadedColorStrength: 0.1
     - _ScrollSpeed: 1
-    - _ScrollStrength: 2
+    - _ScrollStrength: 1.5
     - _ScrollTiling: 25
     - _SrcBlend: 5
     - _Surface: 1

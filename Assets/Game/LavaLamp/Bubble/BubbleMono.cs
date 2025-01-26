@@ -17,4 +17,4 @@ public class BubbleMono : MonoBehaviour
             _bubble._position = Vector2.one * 0.5f;
         }
     }
-}
+}   
