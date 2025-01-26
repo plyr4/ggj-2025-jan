@@ -7,6 +7,7 @@ public class Play : MonoBehaviour
     private GameEvent _playPause;
     [SerializeField]
     private GameEvent _pausePlay;
+
     [SerializeField]
     private GStates _receiveInputGameStateMask;
 

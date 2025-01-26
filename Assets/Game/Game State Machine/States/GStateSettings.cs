@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GStatePause : GStateBase
+public class GStateSettings : GStateBase
 {
-    public GStatePause(StateMachineMono context, StateFactory factory) : base(context, factory)
+    public GStateSettings(StateMachineMono context, StateFactory factory) : base(context, factory)
     {
     }
 
@@ -11,8 +11,6 @@ public class GStatePause : GStateBase
         base.OnEnter();
 
         if (_context == null) return;
-
-        Time.timeScale = 0f;
     }
 
     public override void OnExit()
@@ -20,7 +18,5 @@ public class GStatePause : GStateBase
         base.OnExit();
 
         if (_context == null) return;
-        
-        Time.timeScale = 1f;
     }
 }

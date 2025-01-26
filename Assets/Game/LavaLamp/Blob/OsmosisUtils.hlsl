@@ -30,10 +30,14 @@ void bubbles_float(UnityTexture2D _Bubbles, UnityTexture2D _Bubbles2, UnitySampl
                    float2 _UV, float4 _Color,
                    float _Time,
                    float _State,
+                   bool _TopVanity,
+                   bool _BottomVanity,
+                   float _AspectRatio,
                    out float4 Out)
 {
     Out = float4(0.0, 0.0, 0.0, 0.0);
-    float aspectRatio = 16.0 / 9.0;
+
+    float aspectRatio = _AspectRatio;
 
     float w = 0.2;
     float h = 0.0002;
@@ -49,15 +53,21 @@ void bubbles_float(UnityTexture2D _Bubbles, UnityTexture2D _Bubbles2, UnitySampl
     float b = clamp(_State, 0, threshold);
     float4 boundsColor = float4(r, 0.0, b, 1.0);
 
-    Out += rectangleSDF(_UV, float2(x + 1, y), w, h * aspectRatio, boundsColor);
-    Out += rectangleSDF(_UV, float2(x + 0.5, y), w, h * aspectRatio, boundsColor);
-    Out += rectangleSDF(_UV, float2(x + 0, y), w, h * aspectRatio, boundsColor);
+    if (_BottomVanity)
+    {
+        Out += rectangleSDF(_UV, float2(x + 1, y), w, h * aspectRatio, boundsColor);
+        Out += rectangleSDF(_UV, float2(x + 0.5, y), w, h * aspectRatio, boundsColor);
+        Out += rectangleSDF(_UV, float2(x + 0, y), w, h * aspectRatio, boundsColor);
+    }
 
-    y = 1 + yPadding;
+    if (_TopVanity)
+    {
+        y = 1 + yPadding;
 
-    Out += rectangleSDF(_UV, float2(x + .99, y), w, h * aspectRatio, boundsColor);
-    Out += rectangleSDF(_UV, float2(x + 0.43, y), w, h * aspectRatio, boundsColor);
-    Out += rectangleSDF(_UV, float2(x + -0.1, y), w, h * aspectRatio, boundsColor);
+        Out += rectangleSDF(_UV, float2(x + .99, y), w, h * aspectRatio, boundsColor);
+        Out += rectangleSDF(_UV, float2(x + 0.43, y), w, h * aspectRatio, boundsColor);
+        Out += rectangleSDF(_UV, float2(x + -0.1, y), w, h * aspectRatio, boundsColor);
+    }
 
     for (int i = 0; i < _BubbleCount; i++)
     {

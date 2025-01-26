@@ -22,6 +22,7 @@ public class GStateMachineMono : StateMachineMono
     [Header("State Change")]
     [SerializeField]
     protected GameEvent _onStateChange;
+    public GStateBase _settingsInState;
     [Space]
     [Header("Debug")]
     [Header("Skip Start")]

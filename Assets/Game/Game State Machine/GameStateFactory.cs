@@ -88,6 +88,21 @@ public class GStateFactory : StateFactory
     {
         return new GStatePauseRetry(_context, this);
     }
+    
+    public GStateBase SettingsIn()
+    {
+        return new GStateSettingsIn(_context, this);
+    }
+    
+    public GStateBase SettingsOut()
+    {
+        return new GStateSettingsOut(_context, this);
+    }
+    
+    public GStateBase Settings()
+    {
+        return new GStateSettings(_context, this);
+    }
 
     public GStateBase Quit()
     {

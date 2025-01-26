@@ -14,6 +14,9 @@ public class GUIStartMenu : MonoBehaviour
         {
             case GStateStartIn _:
                 _viewParent.SetActive(true);
+                break;
+            case GStateStart _:
+                _viewParent.SetActive(true);
                 _viewParent.GetComponentInChildren<UnityEngine.UI.Button>().Select();
                 break;
             case GStatePlayLoad _:

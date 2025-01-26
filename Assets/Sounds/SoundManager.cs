@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
 
     public IEnumerator Start()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(0.5f);
         // play theme in loop
         // todo: fix: the volume configurations didnt work last time...
         _theme.loop = true;
@@ -56,9 +56,10 @@ public class SoundManager : MonoBehaviour
     public void UpdateVolume(float volume)
     {
         _volume = volume;
-
-        _theme.volume = volume * _themeVolume;
-        if (_whoosh != null) _whoosh.volume = volume * _whooshVolume;
+        foreach (AudioSource audioSource in FindObjectsOfType<AudioSource>())
+        {
+            audioSource.volume = volume;
+        }
     }
 
     public void PlayWhoosh(GameEvent opts)

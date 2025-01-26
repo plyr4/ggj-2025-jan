@@ -20,6 +20,9 @@ public class GStateMachineGame : GStateMachineMono
     private GStateBase _pauseRetry;
     private GStateBase _pauseQuitIn;
     private GStateBase _pauseQuit;
+    private GStateBase _settingsIn;
+    private GStateBase _settings;
+    private GStateBase _settingsOut;
 
     public bool _unloadPlaySceneOnApplicationStart = true;
 
@@ -69,6 +72,9 @@ public class GStateMachineGame : GStateMachineMono
         _quit = ((GStateFactory)_stateFactory).Quit();
         _pauseQuitIn = ((GStateFactory)_stateFactory).PauseQuitIn();
         _pauseQuit = ((GStateFactory)_stateFactory).PauseQuit();
+        _settingsIn = ((GStateFactory)_stateFactory).SettingsIn();
+        _settings = ((GStateFactory)_stateFactory).Settings();
+        _settingsOut = ((GStateFactory)_stateFactory).SettingsOut();
 
         // transitions
         at(_nan, _init, new FuncPredicate(() =>
@@ -136,6 +142,30 @@ public class GStateMachineGame : GStateMachineMono
 
         at(_pauseQuitIn, _quit, new FuncPredicate(() =>
             _pauseQuitIn._done
+        ));
+
+        at(_start, _settingsIn, new FuncPredicate(() =>
+            _start._done && _settingsIn._ready
+        ));
+
+        at(_pause, _settingsIn, new FuncPredicate(() =>
+            _pause._done && _settingsIn._ready
+        ));
+
+        at(_settingsIn, _settings, new FuncPredicate(() =>
+            _settingsIn._done
+        ));
+
+        at(_settings, _settingsOut, new FuncPredicate(() =>
+            _settingsOut._ready
+        ));
+
+        at(_settingsOut, _start, new FuncPredicate(() =>
+            _settingsOut._done && _start._ready
+        ));
+
+        at(_settingsOut, _pause, new FuncPredicate(() =>
+            _settingsOut._done && _pause._ready
         ));
 
         _stateMachine.SetState(_nan);
@@ -224,5 +254,47 @@ public class GStateMachineGame : GStateMachineMono
     public void HandleStartQuit()
     {
         _startOutQuitIn._ready = true;
+    }
+
+    public void HandleSettingsIn()
+    {
+        switch (CurrentState())
+        {
+            case GStateStart _:
+                _start._done = true;
+                break;
+            case GStatePause _:
+                _pause._done = true;
+                break;
+        }
+
+        _settingsIn._ready = true;
+    }
+
+    public void HandleSettingsInDone()
+    {
+        _settingsIn._done = true;
+    }
+
+    public void HandleSettingsOut()
+    {
+        _settingsOut._ready = true;
+    }
+
+    public void HandleSettingsOutDone()
+    {
+        switch (_settingsInState)
+        {
+            case GStateStart _:
+                _start._ready = true;
+                break;
+            case GStatePause _:
+                _pause._ready = true;
+                break;
+        }
+
+        _settingsInState = null;
+
+        _settingsOut._done = true;
     }
 }

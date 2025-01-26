@@ -1041,6 +1041,7 @@ MonoBehaviour:
   _playerBubbleMono: {fileID: 1677235260}
   _currentState: 0.5
   _currentStateValue: 0.5
+  _stateLerpSpeed: 1
 --- !u!4 &954907843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6639853582710470800, guid: 635818f8c1f1147a28a4e3570a4b6fe2,
@@ -2256,7 +2257,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 384688f9925d046dab28d83a7477321f, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2419,8 +2420,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4464602203225169864, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464602203225169864, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.777
+      value: -3.636
       objectReference: {fileID: 0}
     - target: {fileID: 6661535206693242985, guid: baf77b1b5344746c2aa9a64f7fdd37ec,
         type: 3}

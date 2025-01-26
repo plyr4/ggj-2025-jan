@@ -28,7 +28,7 @@ public class Bubble
 
     public Rigidbody _rigidbody;
 
-    public static Bubble New(Blob blob, Vector2 position, float radius, float baseRadius, float moveSpeed,
+    public static Bubble New(Vector2 position, float radius, float baseRadius, AnimationCurve radiusOverLifetime, float moveSpeed,
         float lifeSpan, bool immortal, bool reserved, bool vanity)
     {
         Bubble bubble = new Bubble();
@@ -38,7 +38,7 @@ public class Bubble
         bubble._radius = radius;
         bubble._randomSeed = UnityEngine.Random.value;
         bubble._startTime = Time.time;
-        bubble._radiusOverLifetime = blob._newBubbleRadiusOverLifetime;
+        bubble._radiusOverLifetime = radiusOverLifetime;
         bubble._lifespan = lifeSpan;
         bubble._immortal = immortal;
         bubble._colorID = UnityEngine.Random.Range(0, 3);
@@ -96,35 +96,6 @@ public class Bubble
     public class UpdateOpts
     {
         public Blob _blob;
-    }
-
-    public static void UpdateBubbles(UpdateOpts opts)
-    {
-        List<Bubble> bubbles = opts._blob._bubbles;
-        for (int i = bubbles.Count - 1; i > 0; i--)
-        {
-            Bubble bubble = bubbles[i];
-            if (bubble == null) continue;
-            if (bubble._reserved) continue;
-
-            if (bubble._killed)
-            {
-                bubble._goalPosition = bubbles[0]._position;
-                bubble.FollowGoal(bubble._moveSpeed * 3f);
-                bubble.HandleKilledRadiusUpdate(opts._blob._shrinkRate);
-                if (bubble._radius <= 0f)
-                    opts._blob.RemoveBubble(bubble);
-                continue;
-            }
-
-            bubble.FollowGoal(bubble._moveSpeed);
-            bubble.HandleLifetimeRadiusUpdate();
-
-            if (bubble.ShouldDie())
-            {
-                opts._blob.RemoveBubble(bubble);
-            }
-        }
     }
 
     public void HandleKilledRadiusUpdate(float shrinkRate)
