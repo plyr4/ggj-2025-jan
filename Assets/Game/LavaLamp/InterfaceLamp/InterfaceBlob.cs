@@ -84,7 +84,7 @@ public class Osmosis : MonoBehaviour
             }
         }
 
-        Bubble b1 = CreateBubble(_center + _bubbleOffset - new Vector2(0.05f, 0f),
+        Bubble b1 = CreateBubble(_center + _bubbleOffset - new Vector2(0.07f, 0f),
             0.006f, 0.006f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
             true, 0f, true, false);
         Tween t1 = DOTween.To(() => b1._position.y, x => b1._position.y = x, _yHeight, _animationSpeed)
@@ -92,20 +92,31 @@ public class Osmosis : MonoBehaviour
             .SetRelative(true)
             .SetLoops(-1, LoopType.Yoyo);
         _tweens.Add(t1);
-        b1._colorID = -1;
+        b1._colorID = 0;
 
 
         Bubble b2 = CreateBubble(_center + _bubbleOffset + new Vector2(0.07f, 0f),
             0.007f, 0.007f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
             true, 0f, true, false);
         Tween t2 = DOTween.To(() => b2._position.y, x => b2._position.y = x, _yHeight, 2f * _animationSpeed)
-            .SetEase(Ease.InSine)
+            .SetEase(Ease.OutSine)
             .SetRelative(true)
             .SetLoops(-1, LoopType.Yoyo);
         _tweens.Add(t2);
         b2._colorID = 0;
 
-        Bubble b4 = CreateBubble(_center + _bubbleOffset,
+        
+        Bubble b3 = CreateBubble(_center,
+            0.005f, 0.0025f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
+            true, 0f, true, false);
+        Tween t3 = DOTween.To(() => b3._position.y, x => b3._position.y = x, 0.1f, _animationSpeed)
+            .SetEase(Ease.InOutSine)
+            .SetRelative(true)
+            .SetLoops(-1, LoopType.Yoyo);
+        _tweens.Add(t3);
+        b3._colorID = -1;
+        
+        Bubble b4 = CreateBubble(_center + _bubbleOffset + new Vector2(0.055f, 0f),
             0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
             true, 0f, true, false);
         Tween t4 = DOTween.To(() => b4._position.y, x => b4._position.y = x, _yHeight * 2.5f, 4f * _animationSpeed)
