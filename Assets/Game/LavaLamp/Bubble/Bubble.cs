@@ -28,7 +28,8 @@ public class Bubble
 
     public Rigidbody _rigidbody;
 
-    public static Bubble New(Vector2 position, float radius, float baseRadius, AnimationCurve radiusOverLifetime, float moveSpeed,
+    public static Bubble New(Vector2 position, float radius, float baseRadius, AnimationCurve radiusOverLifetime,
+        float moveSpeed,
         float lifeSpan, bool immortal, bool reserved, bool vanity)
     {
         Bubble bubble = new Bubble();
@@ -218,6 +219,14 @@ public class Bubble
             float multiplier = alignment < 0 ? Mathf.Lerp(2.0f, 4.0f, -alignment) : 1.5f;
 
             appliedForce *= multiplier;
+
+            // if applied force is infinity or nan then return
+            if (float.IsInfinity(appliedForce.x) || float.IsNaN(appliedForce.x) ||
+                float.IsInfinity(appliedForce.y) || float.IsNaN(appliedForce.y))
+            {
+                return;
+            }
+
             playerRigidbody.AddForce(appliedForce, ForceMode.Acceleration);
 
             if (playerRigidbody.velocity.magnitude > maxVelocity)

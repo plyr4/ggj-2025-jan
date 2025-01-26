@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Osmosis : MonoBehaviour
+public class InterfaceBlob : MonoBehaviour
 {
     [SerializeField]
     public Material _coreMaterialInstance;
@@ -34,28 +33,13 @@ public class Osmosis : MonoBehaviour
     public float _shrinkRate = 0.02f;
     [SerializeField]
     private AnimationCurve _radiusOverLifetime;
-
     public Image _image;
-
     public Vector2 _center = new Vector2(0.5f, 0.5f);
-
-    private void OnDestroy()
-    {
-        if (_tweens != null)
-        {
-            foreach (Tween tween in _tweens)
-            {
-                tween.Kill();
-            }
-        }
-    }
-
     public float _yHeight;
     public Vector2 _bubbleOffset = new Vector2(0f, 0f);
     public float _animationSpeed = 2f;
 
-
-    private void Start()
+    private void Awake()
     {
         Material material = new Material(_coreMaterialInstance);
         _coreMaterialInstance = material;
@@ -90,6 +74,7 @@ public class Osmosis : MonoBehaviour
         Tween t1 = DOTween.To(() => b1._position.y, x => b1._position.y = x, _yHeight, _animationSpeed)
             .SetEase(Ease.InOutSine)
             .SetRelative(true)
+            .SetUpdate(true)
             .SetLoops(-1, LoopType.Yoyo);
         _tweens.Add(t1);
         b1._colorID = 0;
@@ -101,27 +86,30 @@ public class Osmosis : MonoBehaviour
         Tween t2 = DOTween.To(() => b2._position.y, x => b2._position.y = x, _yHeight, 2f * _animationSpeed)
             .SetEase(Ease.OutSine)
             .SetRelative(true)
+            .SetUpdate(true)
             .SetLoops(-1, LoopType.Yoyo);
         _tweens.Add(t2);
         b2._colorID = 0;
 
-        
+
         Bubble b3 = CreateBubble(_center,
             0.005f, 0.0025f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
             true, 0f, true, false);
         Tween t3 = DOTween.To(() => b3._position.y, x => b3._position.y = x, 0.1f, _animationSpeed)
             .SetEase(Ease.InOutSine)
             .SetRelative(true)
+            .SetUpdate(true)
             .SetLoops(-1, LoopType.Yoyo);
         _tweens.Add(t3);
         b3._colorID = -1;
-        
+
         Bubble b4 = CreateBubble(_center + _bubbleOffset + new Vector2(0.055f, 0f),
             0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
             true, 0f, true, false);
         Tween t4 = DOTween.To(() => b4._position.y, x => b4._position.y = x, _yHeight * 2.5f, 4f * _animationSpeed)
             .SetEase(Ease.InOutSine)
             .SetRelative(true)
+            .SetUpdate(true)
             .SetLoops(-1, LoopType.Yoyo);
         _tweens.Add(t4);
         b4._colorID = 0;
@@ -133,18 +121,7 @@ public class Osmosis : MonoBehaviour
 
     void Update()
     {
-        Bubble.UpdateOpts updateOpts = new Bubble.UpdateOpts
-        {
-            // _blob = this
-        };
-        UpdateBubbles();
         UpdateBubbleTextures();
-    }
-
-    private void OnApplicationQuit()
-    {
-        if (_coreMaterialInstance != null)
-            _coreMaterialInstance.SetTexture(_shaderIDs[BUBBLES_SHADER_PROPERTY], _originalBubbleTexture);
     }
 
     private void InitializeBubbleTextures()
@@ -210,11 +187,6 @@ public class Osmosis : MonoBehaviour
         _coreMaterialInstance.SetInt(_shaderIDs[BUBBLE_COUNT_SHADER_PROPERTY], _bubbles.Count);
     }
 
-    public void RemoveBubble(Bubble bubble)
-    {
-        _bubbles.Remove(bubble);
-    }
-
     public Bubble CreateBubble(Vector2 position, float radius, float baseRadius, AnimationCurve radiusOverLifetime,
         float moveSpeed, bool reserve,
         float lifespan,
@@ -245,32 +217,8 @@ public class Osmosis : MonoBehaviour
         return bubble;
     }
 
-    public void UpdateBubbles()
+    public void UpdateState(float state)
     {
-        List<Bubble> bubbles = _bubbles;
-        for (int i = bubbles.Count - 1; i > 0; i--)
-        {
-            Bubble bubble = bubbles[i];
-            if (bubble == null) continue;
-            if (bubble._reserved) continue;
-
-            if (bubble._killed)
-            {
-                bubble._goalPosition = bubbles[0]._position;
-                bubble.FollowGoal(bubble._moveSpeed * 3f);
-                bubble.HandleKilledRadiusUpdate(_shrinkRate);
-                if (bubble._radius <= 0f)
-                    RemoveBubble(bubble);
-                continue;
-            }
-
-            bubble.FollowGoal(bubble._moveSpeed);
-            bubble.HandleLifetimeRadiusUpdate();
-
-            if (bubble.ShouldDie())
-            {
-                RemoveBubble(bubble);
-            }
-        }
+        _coreMaterialInstance.SetFloat(_shaderIDs[BLOB_STATE_SHADER_PROPERTY], state);
     }
 }
