@@ -8,7 +8,7 @@ public class SetGlobalFont : MonoBehaviour
     private void Start()
     {
         // find all active and inactive text mesh pro objects and set the font 
-        TMP_Text[] textMeshPros = FindObjectsOfType<TMP_Text>();
+        TMP_Text[] textMeshPros = FindObjectsOfType<TMP_Text>(true);
         foreach (TMP_Text textMeshPro in textMeshPros)
         {
             textMeshPro.font = _font;

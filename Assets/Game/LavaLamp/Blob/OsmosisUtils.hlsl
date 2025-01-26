@@ -33,6 +33,9 @@ void bubbles_float(UnityTexture2D _Bubbles, UnityTexture2D _Bubbles2, UnitySampl
                    bool _TopVanity,
                    bool _BottomVanity,
                    float _AspectRatio,
+                   bool _UseDimensions,
+                   float2 _Center,
+                   float2 _Bounds,
                    out float4 Out)
 {
     Out = float4(0.0, 0.0, 0.0, 0.0);
@@ -44,6 +47,11 @@ void bubbles_float(UnityTexture2D _Bubbles, UnityTexture2D _Bubbles2, UnitySampl
 
     float yPadding = 0.12;
     float y = -yPadding;
+
+    if (_UseDimensions)
+    {
+        y += _Center.x;
+    }
 
     float x = 0;
     x += sin(_Time * 0.8) * 0.01;
@@ -63,6 +71,11 @@ void bubbles_float(UnityTexture2D _Bubbles, UnityTexture2D _Bubbles2, UnitySampl
     if (_TopVanity)
     {
         y = 1 + yPadding;
+
+        if (_UseDimensions)
+        {
+            y -= _Center.y;
+        }
 
         Out += rectangleSDF(_UV, float2(x + .99, y), w, h * aspectRatio, boundsColor);
         Out += rectangleSDF(_UV, float2(x + 0.43, y), w, h * aspectRatio, boundsColor);

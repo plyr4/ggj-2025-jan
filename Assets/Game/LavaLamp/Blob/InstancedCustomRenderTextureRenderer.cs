@@ -44,8 +44,8 @@ public class InstancedCustomRenderTextureRenderer : MonoBehaviour
         _renderTextureInstance.wrapMode = TextureWrapMode.Clamp;
         _renderTextureInstance.filterMode = FilterMode.Point;
 
-        _renderTexture.initializationMode = CustomRenderTextureUpdateMode.OnDemand;
-        _renderTexture.updateMode = CustomRenderTextureUpdateMode.OnDemand;
+        _renderTexture.initializationMode = CustomRenderTextureUpdateMode.Realtime;
+        _renderTexture.updateMode = CustomRenderTextureUpdateMode.Realtime;
 
         _quadMaterialInstance = new Material(_quadMaterial);
         _quadMaterialInstance.name = $"{_quadMaterial.name}-instanced";

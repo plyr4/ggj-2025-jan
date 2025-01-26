@@ -27,7 +27,7 @@ namespace Game.LavaLamp.Blob
                 return;
             }
 
-            if (GameInput.Instance._shiftPressed)
+            if (GameInput.Instance._buildMenuPressed)
             {
                 Bubble b = new Bubble();
                 b._colorID = 1;

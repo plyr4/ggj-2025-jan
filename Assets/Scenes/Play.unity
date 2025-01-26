@@ -926,10 +926,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _finder: {fileID: 1418463392}
-  _coreMaterialInstance: {fileID: 0}
+  _coreMaterialInstance: {fileID: 2100000, guid: 6e6a5cae6a7fb7c45a06372ea104ea4c,
+    type: 2}
   _quadClickHandler: {fileID: 254356075}
   _bubbles: []
-  _originalBubbleTexture: {fileID: 0}
+  _originalBubbleTexture: {fileID: 2800000, guid: 77afcc46fed14684a9e9559763d7d1b4,
+    type: 3}
   _runtimeBubbleTexture: {fileID: 0}
   _runtimeBubbleTexture2: {fileID: 0}
   _writeToOriginalBubbleTexture: 0

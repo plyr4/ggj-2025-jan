@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Blob : MonoBehaviour
 {
     public InstancedCustomRenderTextureRenderer _finder;
     [SerializeField]
-    [ReadOnlyInspector]
     public Material _coreMaterialInstance;
     [SerializeField]
     private QuadClickHandler _quadClickHandler;
@@ -64,10 +65,10 @@ public class Blob : MonoBehaviour
     {
         _quadClickHandler.OnQuadClicked += OnQuadClicked;
 
-        InstancedCustomRenderTextureRenderer.Result result = _finder.GenerateCustomRenderTextureMaterial();
+        Material material = new Material(_coreMaterialInstance);
+        _coreMaterialInstance = material;
 
-        _coreMaterialInstance = result._coreMaterial;
-        _quadClickHandler.GetComponent<MeshRenderer>().material = result._quadMaterial;
+        _quadClickHandler.GetComponent<MeshRenderer>().material = _coreMaterialInstance;
 
         _shaderIDs[BUBBLES_SHADER_PROPERTY] = Shader.PropertyToID(BUBBLES_SHADER_PROPERTY);
         _shaderIDs[BUBBLES2_SHADER_PROPERTY] = Shader.PropertyToID(BUBBLES2_SHADER_PROPERTY);

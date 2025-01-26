@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -5,9 +6,7 @@ using UnityEngine.UI;
 
 public class Osmosis : MonoBehaviour
 {
-    public InstancedCustomRenderTextureRenderer _finder;
     [SerializeField]
-    [ReadOnlyInspector]
     public Material _coreMaterialInstance;
     private Vector2Int _bubbleTextureSize = new Vector2Int(32, 32);
     public List<Bubble> _bubbles = new List<Bubble>();
@@ -31,19 +30,42 @@ public class Osmosis : MonoBehaviour
     public float _bubbleBaseMoveSpeed = 0.1f;
     [Range(0, 1)]
     public float _perimeterBubbleHeight = 0.3f;
-    private Tween _t;
+    private List<Tween> _tweens = new List<Tween>();
     public float _shrinkRate = 0.02f;
     [SerializeField]
     private AnimationCurve _radiusOverLifetime;
 
-    public RawImage _image;
+    public Image _image;
+
+    public Vector2 _center = new Vector2(0.5f, 0.5f);
+
+    private void OnDestroy()
+    {
+        if (_tweens != null)
+        {
+            foreach (Tween tween in _tweens)
+            {
+                tween.Kill();
+            }
+        }
+    }
+
+    public float _yHeight;
+    public Vector2 _bubbleOffset = new Vector2(0f, 0f);
+    public float _animationSpeed = 2f;
+
 
     private void Start()
     {
-        InstancedCustomRenderTextureRenderer.Result result = _finder.GenerateCustomRenderTextureMaterial();
+        Material material = new Material(_coreMaterialInstance);
+        _coreMaterialInstance = material;
 
-        _coreMaterialInstance = result._coreMaterial;
-        _image.texture = result._quadMaterial.mainTexture;
+        if (_image == null)
+        {
+            _image = GetComponent<Image>();
+        }
+
+        _image.material = _coreMaterialInstance;
 
         _shaderIDs[BUBBLES_SHADER_PROPERTY] = Shader.PropertyToID(BUBBLES_SHADER_PROPERTY);
         _shaderIDs[BUBBLES2_SHADER_PROPERTY] = Shader.PropertyToID(BUBBLES2_SHADER_PROPERTY);
@@ -54,36 +76,44 @@ public class Osmosis : MonoBehaviour
 
         _bubbles.Clear();
 
-        // // create player bubble
-        Bubble b = CreateBubble(new Vector2(0f, 0f),
-            0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
+        if (_tweens != null)
+        {
+            foreach (Tween tween in _tweens)
+            {
+                tween.Kill();
+            }
+        }
+
+        Bubble b1 = CreateBubble(_center + _bubbleOffset - new Vector2(0.05f, 0f),
+            0.006f, 0.006f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
             true, 0f, true, false);
-
-          b = CreateBubble(new Vector2(1f, 0f),
-            0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
-            true, 0f, true, false);
-
-          b = CreateBubble(new Vector2(0f, 1f),
-              0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
-              true, 0f, true, false);
-
-          b = CreateBubble(new Vector2(1f, 1f),
-              0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
-              true, 0f, true, false);
-
-
-        b = CreateBubble(new Vector2(0.5f, 0.25f),
-            0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
-            true, 0f, true, false);
-
-        // tween b up and down sine
-        _t = DOTween.To(() => b._position.y, x => b._position.y = x, 0.75f, 1f).SetEase(Ease.InOutSine)
+        Tween t1 = DOTween.To(() => b1._position.y, x => b1._position.y = x, _yHeight, _animationSpeed)
+            .SetEase(Ease.InOutSine)
+            .SetRelative(true)
             .SetLoops(-1, LoopType.Yoyo);
+        _tweens.Add(t1);
+        b1._colorID = -1;
 
-        // playerBubble._colorID = -1;
-        // _playerBubbleMono._bubble = playerBubble;
-        // _playerBubbleMono.transform.localPosition = playerBubble._position;
 
+        Bubble b2 = CreateBubble(_center + _bubbleOffset + new Vector2(0.07f, 0f),
+            0.007f, 0.007f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
+            true, 0f, true, false);
+        Tween t2 = DOTween.To(() => b2._position.y, x => b2._position.y = x, _yHeight, 2f * _animationSpeed)
+            .SetEase(Ease.InSine)
+            .SetRelative(true)
+            .SetLoops(-1, LoopType.Yoyo);
+        _tweens.Add(t2);
+        b2._colorID = 0;
+
+        Bubble b4 = CreateBubble(_center + _bubbleOffset,
+            0.004f, 0.004f, _radiusOverLifetime, _bubbleBaseMoveSpeed,
+            true, 0f, true, false);
+        Tween t4 = DOTween.To(() => b4._position.y, x => b4._position.y = x, _yHeight * 2.5f, 4f * _animationSpeed)
+            .SetEase(Ease.InOutSine)
+            .SetRelative(true)
+            .SetLoops(-1, LoopType.Yoyo);
+        _tweens.Add(t4);
+        b4._colorID = 0;
 
         // initialize texture
         InitializeBubbleTextures();
