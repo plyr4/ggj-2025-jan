@@ -1,6 +1,6 @@
 ## Lovoflow
 
-![lovoflow.png](img/lovoflow.png)
+![lovoflow.png](img/lovoflow.gif)
 
 Solo submission for [Global Game Jam](https://globalgamejam.org) built in a single week.
 
