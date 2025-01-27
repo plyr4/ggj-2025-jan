@@ -307,7 +307,7 @@ public class Blob : MonoBehaviour
         float delta = 0.05f;
         if (bubble._colorID == 1)
         {
-            delta *= -5;
+            delta *= -3f;
         }
 
         float state = _currentState;
