@@ -142,6 +142,11 @@ public class Bubble
             if (heatSource == null || !heatSource.isActiveAndEnabled) continue;
 
             Vector2 bounds = heatSource.GetNormalizedWidthBounds();
+            if (float.IsNaN(bounds.x) || float.IsNaN(bounds.y) ||
+                float.IsInfinity(bounds.x) || float.IsInfinity(bounds.y))
+            {
+                continue;
+            }
 
             float baseSpeed = opts._blob._playerBubbleBaseMoveSpeed * playerBubbleMono._mass;
             float radiusFactor = Mathf.Max(1f, playerBubbleMono._bubble._radius / playerBubbleMono._bubble._baseRadius);
@@ -224,7 +229,7 @@ public class Bubble
             if (float.IsInfinity(appliedForce.x) || float.IsNaN(appliedForce.x) ||
                 float.IsInfinity(appliedForce.y) || float.IsNaN(appliedForce.y))
             {
-                return;
+                appliedForce = Vector2.zero;
             }
 
             playerRigidbody.AddForce(appliedForce, ForceMode.Acceleration);
@@ -237,6 +242,12 @@ public class Bubble
                     0.1f
                 );
             }
+        }
+
+        if (float.IsInfinity(playerRigidbody.velocity.x) || float.IsNaN(playerRigidbody.velocity.x) ||
+            float.IsInfinity(playerRigidbody.velocity.y) || float.IsNaN(playerRigidbody.velocity.y))
+        {
+            playerRigidbody.velocity = Vector2.zero;
         }
     }
 

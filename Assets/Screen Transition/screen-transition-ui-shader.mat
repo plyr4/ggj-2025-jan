@@ -40,6 +40,6 @@ Material:
     - _UseUIAlphaClip: 1
     m_Colors:
     - _Center: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.31456894, g: 0.020425411, b: 0.4811321, a: 1}
+    - _Color: {r: 0.41656455, g: 0, b: 0.6415094, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

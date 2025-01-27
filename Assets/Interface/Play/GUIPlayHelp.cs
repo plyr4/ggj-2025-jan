@@ -3,7 +3,11 @@ using UnityEngine;
 public class GUIPlayHelp : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _toggleParent;
+    [SerializeField]
     private GameObject _viewParent;
+    [SerializeField]
+    private GameEvent _playPause;
 
     public void HandleGameStateChange(IGameEventOpts opts)
     {
@@ -18,5 +22,15 @@ public class GUIPlayHelp : MonoBehaviour
                 _viewParent.SetActive(true);
                 break;
         }
+    }
+
+    public void HandleToggle(bool value)
+    {
+        _toggleParent.SetActive(value);
+    }
+
+    public void HandleOnClickEscape()
+    {
+        _playPause.Invoke();
     }
 }

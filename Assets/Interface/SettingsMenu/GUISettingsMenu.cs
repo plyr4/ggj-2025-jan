@@ -21,6 +21,7 @@ public class GUISettingsMenu : MonoBehaviour
     public GameEvent _settingsOutDone;
     public GameEvent _settingsOut;
     public Tween _menuTween;
+    public GUIPlayHelp _guiPlayHelp;
 
     public void Update()
     {
@@ -79,5 +80,20 @@ public class GUISettingsMenu : MonoBehaviour
     public void HandleVolumeSliderChange(float volume)
     {
         SoundManager.Instance.UpdateVolume(volume);
+    }
+
+    public Toggle _uiToggle;
+
+    public void HandleToggleInGameUI(bool value)
+    {
+        _uiToggle.isOn = value;
+        _guiPlayHelp.HandleToggle(value);
+    }
+
+    public Toggle _pixelationToggle;
+
+    public void HandleTogglePixelation(bool value)
+    {
+        _pixelationToggle.isOn = value;
     }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Groovy Bubbles</title>
+    <title>Lovoflow</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
@@ -19,7 +19,7 @@
                 <!-- top left -->
                 <div id="title-spacer"></div>
                 <!-- center -->
-                <div id="unity-build-title">Groovy Bubbles</div>
+                <div id="unity-build-title">Lovoflow</div>
                 <!-- top right -->
                 <div id="unity-fullscreen-button-container">
                     <div id="unity-fullscreen-button"></div>
@@ -36,26 +36,23 @@
         </div>
         <div id="game-info">
             <div id="about">
-                <div class="header">ABOUT</div>
+                <div class="header">ABOUT Lovoflow</div>
                 <div class="info">
                     <div class="line">
-                        Help your <span class="green circles">bubble</span> go with the flow, dodge <span
-                            class="red circles">bad vibes</span> and achieve <span class="lightblue">tranquility</span>
-                        in this battle of Glob vs. Evil!
+                        Use <span class="orange">heat</span> to move your <span class="green">green ooze</span> around
+                        a lava lamp.
+                    </div>
+                    <div class="line">Absorb <span class="lightblue">good globs</span>, or <span
+                            class="red">bad globs</span>.
+                    </div>
+                    <div class="line">
+                        Be careful, <span class="red">bad blobs</span> like <span class="orange">heat</span>.
+                    </div>
+                    <div class="line"> If you want, collect <span class="lightblue">good globs</span> to boost the
+                        lamp's <span class="magenta">tranquility</span>.
                     </div>
                     <br/>
-                    <div class="line">Use dexterity and <span class="orange">light bulbs</span> to manipulate the
-                        environment.
-                    </div>
-                    <div class="line">
-                        Guide your <span class="green circles">bubble</span> towards <span class="blue circles">peaceful blobs</span>.
-                    </div>
-                    <div class="line">
-                        Avoid touching <span class="red circles">evil</span> at all costs.
-                    </div>
-                    <div class="line">
-                        Collect enough <span class="blue circles">peaceful blobs</span> to achieve <span
-                            class="lightblue">tranquility</span>.
+                    <div class="line">But most importantly, relax, and enjoy.
                     </div>
                     <div class="line" id="download">> Web demo not working? Try downloading the <a
                             href="${WINDOWS_BUILD_LINK}"
@@ -67,22 +64,28 @@
                                 target="_blank">Linux</a> <img class="sml-icon"
                                                                src="https://static-00.iconduck.com/assets.00/linux-icon-439x512-rnhe78x0.png"/>)
                     </div>
+                    <div class="line small">
+                        Built in a week for <a href="https://globalgamejam.org/">Global Game Jam</a> 2025.
+                    </div>
                 </div>
             </div>
             <div id="controls">
                 <div class="header">CONTROLS</div>
                 <ul>
                     &nbsp;&nbsp;Best experienced with a controller
-                    <li><u>WASD keys</u> or <u>LEFT-JOYSTICK</u> to navigate menus.</li>
-                    <li><u>WS keys</u> or <u>LEFT-JOYSTICK</u> to control left heat source.</li>
-                    <li><u>UP/DOWN keys</u> or <u>RIGHT-JOYSTICK</u> to control right heat source.</li>
+                    <li><u>WASD keys</u> to control the <span class="lightblue"><span class="orange">heat</span> sources</span>
+                    </li>
+                    <li><u>ARROW keys</u> to control the <span class="lightblue"><span class="orange">heat</span> sources</span>
+                    </li>
+                    <li><u>JOYSTICKS</u> to control the <span class="lightblue"><span class="orange">heat</span> sources</span>
+                    </li>
                     <li><u>BACKSPACE</u> or <u>START</u> to pause</li>
                 </ul>
             </div>
             <div id="known-issues">
                 <div class="header">KNOWN ISSUES</div>
                 <ul>
-                    <!--                    <li>-</li>-->
+                    <li>Mini lava lamp sometimes not receiving light</li>
                 </ul>
             </div>
             <div id="build-info">
@@ -101,7 +104,7 @@
                         <div>- <a class="value" href="https://github.com/plyr4" target="_blank">github.com/plyr4</a>
                         </div>
                         <div>- <a class="value" id="commit-link" target="_blank"
-                                  href="https://github.com/plyr4/ggj-2025-jan/commit/${BUILD_COMMIT}">${BUILD_COMMIT}</a>
+                                  href="https://github.com/plyr4/lovoflow/commit/${BUILD_COMMIT}">${BUILD_COMMIT}</a>
                         </div>
                         <div>- <span class="value">${BUILD_COMMIT_MESSAGE}</span></div>
                     </div>
@@ -153,7 +156,7 @@
         codeUrl: buildUrl + "/WebGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "plyr4",
-        productName: "ggj-plyr4",
+        productName: "lovoflow",
         productVersion: "${BUILD_COMMIT}",
         showBanner: unityShowBanner,
     };

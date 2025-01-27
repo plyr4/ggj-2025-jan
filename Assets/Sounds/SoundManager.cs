@@ -37,14 +37,14 @@ public class SoundManager : MonoBehaviour
 
     public IEnumerator Start()
     {
+        UpdateVolume(_volume);
+        Mute(_mute);
+
         yield return new WaitForSecondsRealtime(0.5f);
         // play theme in loop
-        // todo: fix: the volume configurations didnt work last time...
         _theme.loop = true;
         InvokeRepeating(nameof(PlayTheme), 1f, _theme.clip.length + 0.5f);
         if (_whoosh != null) _whooshVolume = _whoosh.volume;
-        UpdateVolume(_volume);
-        Mute(_mute);
         _initialized = true;
     }
 
