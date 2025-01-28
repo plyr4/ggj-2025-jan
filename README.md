@@ -42,8 +42,9 @@ Essentially, the game runs and state changes, which is written to a 32x32 textur
 ### Tools & Software
 
 - Music was created using [Sonic Pi](https://sonic-pi.net/).
-- Art was created using [Asperite](https://www.aseprite.org/) and [Blender](https://www.blender.org/).
-- Other animations use [DOTween (free)](https://dotween.demigiant.com/).
+- Art was created using [Asperite](https://www.aseprite.org/)
+- Some random assets created using [Blender](https://www.blender.org/).
+- [DOTween (free)](https://dotween.demigiant.com/).
 
 ## Installation
 
@@ -55,7 +56,7 @@ Essentially, the game runs and state changes, which is written to a 32x32 textur
 
 This folder contains the entire Unity project for Lovoflow and all assets required to run and build the game.
 
-Install Unity 2022.3.25f1 and add this directory as a project.
+Install [Unity 2022.3.25f1](https://unity.com/releases/editor/archive) and add this directory as a project.
 
 Open the core game scene `Assets/Scenes/Game.unity`.
 
