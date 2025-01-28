@@ -25,6 +25,8 @@ But most importantly, relax, and enjoy.
 - **JOYSTICKS** to control the heat sources
 - **BACKSPACE** or **START** to pause
 
+![lovoflow_1.png](img/lovoflow_1.png)
+
 ## How Lovoflow works
 
 The game runs on an HLSL shader-based implementation of [Metaballs](https://en.wikipedia.org/wiki/Metaballs). 
