@@ -218,28 +218,6 @@ MonoBehaviour:
     m_Bits: 4294967295
   _disable: 0
   _debug: 0
---- !u!64 &254356076
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254356071}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &256152846
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +482,7 @@ PrefabInstance:
     - target: {fileID: 6639853582710470800, guid: 635818f8c1f1147a28a4e3570a4b6fe2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 6639853582710470800, guid: 635818f8c1f1147a28a4e3570a4b6fe2,
         type: 3}
@@ -573,7 +551,6 @@ GameObject:
   - component: {fileID: 340928588}
   - component: {fileID: 340928591}
   - component: {fileID: 340928590}
-  - component: {fileID: 340928589}
   m_Layer: 9
   m_Name: blob-backdrop-back
   m_TagString: Untagged
@@ -596,28 +573,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 254356074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &340928589
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340928587}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &340928590
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1434,7 +1389,6 @@ GameObject:
   - component: {fileID: 1299646487}
   - component: {fileID: 1299646490}
   - component: {fileID: 1299646489}
-  - component: {fileID: 1299646488}
   m_Layer: 9
   m_Name: blob-backdrop-front
   m_TagString: Untagged
@@ -1457,28 +1411,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 254356074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1299646488
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299646486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1299646489
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1947,10 +1879,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 805757148005408601, guid: 901964071118be6499fd1a8ed2a93041,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 254356076}
-    - targetCorrespondingSourceObject: {fileID: 805757148005408601, guid: 901964071118be6499fd1a8ed2a93041,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 254356075}
   m_SourcePrefab: {fileID: 100100000, guid: 901964071118be6499fd1a8ed2a93041, type: 3}
 --- !u!1 &1677235256
@@ -2256,7 +2184,7 @@ PrefabInstance:
     - target: {fileID: 6639853582710470800, guid: 635818f8c1f1147a28a4e3570a4b6fe2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 6639853582710470800, guid: 635818f8c1f1147a28a4e3570a4b6fe2,
         type: 3}

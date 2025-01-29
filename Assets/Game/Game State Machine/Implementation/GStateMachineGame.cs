@@ -23,6 +23,10 @@ public class GStateMachineGame : GStateMachineMono
     private GStateBase _settingsIn;
     private GStateBase _settings;
     private GStateBase _settingsOut;
+    private GStateBase _howToPlay;
+    private GStateBase _howToPlayIn;
+    private GStateBase _howToPlayOut;
+
 
     public bool _unloadPlaySceneOnApplicationStart = true;
 
@@ -75,6 +79,9 @@ public class GStateMachineGame : GStateMachineMono
         _settingsIn = ((GStateFactory)_stateFactory).SettingsIn();
         _settings = ((GStateFactory)_stateFactory).Settings();
         _settingsOut = ((GStateFactory)_stateFactory).SettingsOut();
+        _howToPlayIn = ((GStateFactory)_stateFactory).HowToPlayIn();
+        _howToPlay = ((GStateFactory)_stateFactory).HowToPlay();
+        _howToPlayOut = ((GStateFactory)_stateFactory).HowToPlayOut();
 
         // transitions
         at(_nan, _init, new FuncPredicate(() =>
@@ -166,6 +173,30 @@ public class GStateMachineGame : GStateMachineMono
 
         at(_settingsOut, _pause, new FuncPredicate(() =>
             _settingsOut._done && _pause._ready
+        ));
+
+        at(_start, _howToPlayIn, new FuncPredicate(() =>
+            _start._done && _howToPlayIn._ready
+        ));
+
+        at(_pause, _howToPlayIn, new FuncPredicate(() =>
+            _pause._done && _howToPlayIn._ready
+        ));
+
+        at(_howToPlayIn, _howToPlay, new FuncPredicate(() =>
+            _howToPlayIn._done
+        ));
+
+        at(_howToPlay, _howToPlayOut, new FuncPredicate(() =>
+            _howToPlayOut._ready
+        ));
+
+        at(_howToPlayOut, _start, new FuncPredicate(() =>
+            _howToPlayOut._done && _start._ready
+        ));
+
+        at(_howToPlayOut, _pause, new FuncPredicate(() =>
+            _howToPlayOut._done && _pause._ready
         ));
 
         _stateMachine.SetState(_nan);
@@ -296,5 +327,48 @@ public class GStateMachineGame : GStateMachineMono
         _settingsInState = null;
 
         _settingsOut._done = true;
+    }
+
+
+    public void HandleHowToPlayIn()
+    {
+        switch (CurrentState())
+        {
+            case GStateStart _:
+                _start._done = true;
+                break;
+            case GStatePause _:
+                _pause._done = true;
+                break;
+        }
+
+        _howToPlayIn._ready = true;
+    }
+
+    public void HandleHowToPlayInDone()
+    {
+        _howToPlayIn._done = true;
+    }
+
+    public void HandleHowToPlayOut()
+    {
+        _howToPlayOut._ready = true;
+    }
+
+    public void HandleHowToPlayOutDone()
+    {
+        switch (_howToPlayInState)
+        {
+            case GStateStart _:
+                _start._ready = true;
+                break;
+            case GStatePause _:
+                _pause._ready = true;
+                break;
+        }
+
+        _howToPlayInState = null;
+
+        _howToPlayOut._done = true;
     }
 }

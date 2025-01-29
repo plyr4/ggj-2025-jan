@@ -88,20 +88,35 @@ public class GStateFactory : StateFactory
     {
         return new GStatePauseRetry(_context, this);
     }
-    
+
     public GStateBase SettingsIn()
     {
         return new GStateSettingsIn(_context, this);
     }
-    
+
     public GStateBase SettingsOut()
     {
         return new GStateSettingsOut(_context, this);
     }
-    
+
     public GStateBase Settings()
     {
         return new GStateSettings(_context, this);
+    }
+
+    public GStateBase HowToPlayIn()
+    {
+        return new GStateHowToPlayIn(_context, this);
+    }
+
+    public GStateBase HowToPlayOut()
+    {
+        return new GStateHowToPlayOut(_context, this);
+    }
+
+    public GStateBase HowToPlay()
+    {
+        return new GStateHowToPlay(_context, this);
     }
 
     public GStateBase Quit()

@@ -225,7 +225,6 @@ public class Bubble
 
             appliedForce *= multiplier;
 
-            // if applied force is infinity or nan then return
             if (float.IsInfinity(appliedForce.x) || float.IsNaN(appliedForce.x) ||
                 float.IsInfinity(appliedForce.y) || float.IsNaN(appliedForce.y))
             {
